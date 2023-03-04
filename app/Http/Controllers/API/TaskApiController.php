@@ -33,6 +33,7 @@ class TaskApiController extends Controller
      *      tags={"Tasks"},
      *      summary="Store new task",
      *      description="Returns task data",
+     *      security={{"sanctum":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/TaskRequestDTO")
@@ -65,6 +66,7 @@ class TaskApiController extends Controller
      *      tags={"Tasks"},
      *      summary="Get task information",
      *      description="Returns task data",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Task id",
@@ -107,6 +109,7 @@ class TaskApiController extends Controller
      *      tags={"Tasks"},
      *      summary="Update existing task",
      *      description="Returns updated task data",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Task id",
@@ -158,6 +161,7 @@ class TaskApiController extends Controller
      *      tags={"Tasks"},
      *      summary="Delete existing task",
      *      description="Deletes a record",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Task id",

@@ -24,6 +24,7 @@ class TodoApiController extends Controller
      *      tags={"Todo"},
      *      summary="Get list of todos",
      *      description="Returns list of todos",
+     *      security={{"sanctum":{}}},
      *      @OA\Response(
      *          response=200,
      *          description="Successful operation",
@@ -47,6 +48,7 @@ class TodoApiController extends Controller
      *      tags={"Todo"},
      *      summary="Store new todo",
      *      description="Returns todo data",
+     *      security={{"sanctum":{}}},
      *      @OA\RequestBody(
      *          required=true,
      *          @OA\JsonContent(ref="#/components/schemas/TodoRequestDTO")
@@ -79,6 +81,7 @@ class TodoApiController extends Controller
      *      tags={"Todo"},
      *      summary="Get todo information",
      *      description="Returns todo data",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Todo id",
@@ -116,6 +119,7 @@ class TodoApiController extends Controller
      *      tags={"Todo"},
      *      summary="Update existing todo",
      *      description="Returns updated todo data",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Todo id",
@@ -162,6 +166,7 @@ class TodoApiController extends Controller
      *      tags={"Todo"},
      *      summary="Delete existing todo",
      *      description="Deletes a record",
+     *      security={{"sanctum":{}}},
      *      @OA\Parameter(
      *          name="id",
      *          description="Todo id",
