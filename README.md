@@ -61,8 +61,11 @@ Your might be:
 If you want to change server url of swagger then please go to `.env` file and change the value of these variables:
 
 `L5_SWAGGER_CONST_HOST=http://localhost/api/`
+
 `L5_SWAGGER_CONST_HOST_COMMON=http://localhost:8000/api/`
+
 `L5_SWAGGER_CONST_HOST_COMMON_IP=http://127.0.0.1:8000/api/`
+
 
 ## Exception handling
 For handling any exception, I've used `Handler.php` file. There I added most common scenarios to handle exception. All the exception will return a standard json format data with error messages.
