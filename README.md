@@ -1,66 +1,112 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Project Name - TODO API
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Requirements:
+- The API should allow users to create, view, edit, and delete to-do lists.
+- Each to-do list should have a name and a list of tasks associated with it.
+- Users should be able to add, view, edit, and delete tasks within each to-do list.
+- The application should be designed and built following best practices and design patterns.
+- The application should be well-documented and testable.
+- Use of version control systems such as Git is mandatory.
+- Write a few test cases to ensure that the API is functioning as expected.
 
-## About Laravel
+## Few Assumptions
+- Authentication required for any action of todo or task
+- Task will be add one by one under a todo
+- Todo can not be deleted if there is any task belong. tasks first need to delete and then todo can be delete.
+- On task update it is not possible to update task's todo.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Architecture and Design Pattern
+I have chosen to use the Service Layer and Repository design patterns in my implementation of the todo app API with Laravel.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![architecture diagram](https://salihanmridha.com/wp-content/uploads/2023/03/Blank-diagram.jpeg)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### Repository design pattern
+The Repository pattern provides a consistent and uniform way to access and manipulate data from data sources, such as a database. The Repository acts as a collection of data access methods, abstracting the underlying data store and providing a simple and consistent interface to the Service Layer. This pattern helps decouple the application from specific data storage technologies, which can be easily swapped out or modified without affecting the rest of the codebase.
+### Service layer design pattern
+The Service Layer pattern provides a clear separation of concerns between the presentation layer (i.e., the controllers and routes) and the data access layer (i.e., the repositories). The Service Layer acts as an intermediary between the two layers, encapsulating the business logic and exposing a simplified API to the presentation layer. This pattern helps improve code maintainability and testability, as well as promoting code reuse and modularity.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Together, these two patterns provide a solid foundation for building a scalable, maintainable, and testable API that can evolve over time as business needs change.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### ERD
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![db erd diagram](https://salihanmridha.com/wp-content/uploads/2023/03/todo-erd.jpeg)
 
-## Laravel Sponsors
+## Project Setup
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Prerequisite
+- PHP v8.1 minimum
+- Composer [more details](https://getcomposer.org/)
+- MySQL Database driver
+- Sqlite database driver
 
-### Premium Partners
+### Installation
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- Clone the repository (```git clone https://github.com/salihanmridha/todo-api.git```) 
+- go to root directory of the application, (```cd todo-api```)
+- Install composer - ```composer install```
+- Copy and rename ```.env.example``` to ```.env```
+- Give your database credential and change host in .env file
+- Run ```php artisan key:generate```
+- Run ```php artisan optimize:clear```
+- Run ```php artisan migrate```
+- Run ```php artisan db:seed```
+- Thats it! Application setup done.
 
-## Contributing
+## Swagger API documentation
+You will find swagger API documentation on YOUR_URL/api/documentation. For me it is: http://localhost/api/documentation
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## How to use the application
 
-## Code of Conduct
+The application has 3 part. **Authentication, Todos and Tasks**. Authentication required for any operation of Todos and Tasks.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Authentication
+You'll find details documentation and how to use the authentication [here](http://localhost/api/documentation#/Authentication) or YOUR_URL/api/documentation#/Authentication
 
-## Security Vulnerabilities
+### Todos
+You'll find details documentation and how to use the Todos [here](http://localhost/api/documentation#/Todo) or YOUR_URL/api/documentation#/Todo
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Tasks
+You'll find details documentation and how to use the Tasks [here](http://localhost/api/documentation#/Tasks) or YOUR_URL/api/documentation#/Tasks
 
-## License
+## Test cases
+I have written total 24 test cases to ensure the api functionality is working correctly. I've skipped user test cases and I assumed the main focus is on todos and tasks.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+To run test cases, you need to run ```php artisan test``` command in your cli.
+
+#### List of test cases
+
+✓ unauthenticated user cant create task                                                                                                                       
+✓ unauthenticated user cant get single task                                                                                                                   
+✓ unauthenticated user cant update task                                                                                                                       
+✓ unauthenticated user cant delete task                                                                                                                       
+✓ authenticated user can create task
+
+✓ authenticated user cant create task of other user todo                                                                                                      
+✓ authenticated user can view task with todo                                                                                                                  
+✓ authenticated user cant view task of other user todo                                                                                                        
+✓ authenticated user can update task                                                                                                                          
+✓ authenticated user can delete task                                           
+
+✓ unauthenticated user cant get all todos                                                                                                                     
+✓ unauthenticated user cant create todo                                                                                                                       
+✓ unauthenticated user cant get single todo                                                                                                                   
+✓ unauthenticated user cant update todo                                                                                                                       
+✓ unauthenticated user cant delete todo                                                                                                                       
+✓ authenticated user can create todo                                                                                                                         
+✓ authenticated user cannot create todo without fill name                                                                                                     
+✓ authenticated user can get todo list                                                                                                                        
+✓ authenticated user can view todo with tasks                                                                                                                 
+✓ authenticated user can not view other user todo                                                                                                             
+✓ authenticated user can update todo                                           
+
+✓ authenticated user can not update other user todo                                                                                                           
+✓ authenticated user can delete todo                                                                                                                          
+✓ authenticated user cant delete other user todo
+
+
+
+
+
+
+

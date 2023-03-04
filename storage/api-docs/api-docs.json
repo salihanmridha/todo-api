@@ -6,10 +6,6 @@
         "contact": {
             "email": "salihanmridha@gmail.com"
         },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
         "version": "1.0.0"
     },
     "servers": [
@@ -1157,17 +1153,11 @@
         },
         "securitySchemes": {
             "sanctum": {
-                "type": "apiKey",
+                "type": "auth",
                 "description": "Enter token in format (Bearer <token>)",
                 "name": "Authorization",
                 "in": "header"
             }
         }
-    },
-    "tags": [
-        {
-            "name": "TODO",
-            "description": "API Endpoints of TODO"
-        }
-    ]
+    }
 }

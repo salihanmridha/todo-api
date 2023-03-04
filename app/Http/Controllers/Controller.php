@@ -14,10 +14,6 @@ use Illuminate\Routing\Controller as BaseController;
  *      @OA\Contact(
  *          email="salihanmridha@gmail.com"
  *      ),
- *      @OA\License(
- *          name="Apache 2.0",
- *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
- *      )
  * )
  *
  * @OA\Server(
@@ -26,10 +22,6 @@ use Illuminate\Routing\Controller as BaseController;
  * )
 
  *
- * @OA\Tag(
- *     name="TODO",
- *     description="API Endpoints of TODO"
- * )
  */
 class Controller extends BaseController
 {
