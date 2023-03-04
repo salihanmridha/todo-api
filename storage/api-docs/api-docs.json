@@ -10,6 +10,14 @@
     },
     "servers": [
         {
+            "url": "http://localhost:8000/api/",
+            "description": "TODO API Server For Common"
+        },
+        {
+            "url": "http://127.0.0.1:8000/api/",
+            "description": "TODO API Server For Common IP"
+        },
+        {
             "url": "http://localhost/api/",
             "description": "TODO API Server"
         }

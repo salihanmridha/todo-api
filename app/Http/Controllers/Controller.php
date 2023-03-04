@@ -17,6 +17,14 @@ use Illuminate\Routing\Controller as BaseController;
  * )
  *
  * @OA\Server(
+ *      url=L5_SWAGGER_CONST_HOST_COMMON,
+ *      description="TODO API Server For Common"
+ * )
+ * @OA\Server(
+ *      url=L5_SWAGGER_CONST_HOST_COMMON_IP,
+ *      description="TODO API Server For Common IP"
+ * )
+ * @OA\Server(
  *      url=L5_SWAGGER_CONST_HOST,
  *      description="TODO API Server"
  * )

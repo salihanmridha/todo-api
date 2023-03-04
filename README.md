@@ -49,12 +49,20 @@ Together, these two patterns provide a solid foundation for building a scalable,
 - Give your database credential and change host in .env file
 - Run ```php artisan key:generate```
 - Run ```php artisan optimize:clear```
-- Run ```php artisan migrate```
-- Run ```php artisan db:seed```
-- Thats it! Application setup done.
+- Run ```php artisan migrate --seed```
+- That's it! Application setup done.
 
 ## Swagger API documentation
-You will find swagger API documentation on YOUR_URL/api/documentation. For me it is: http://localhost/api/documentation
+You will find swagger API documentation on YOUR_URL/api/documentation. For me it is: http://localhost/api/documentation.
+
+Your might be:
+`http://localhost:8000/api/documentation` or `http://127.0.0.1:8000/api/documentation`
+
+If you want to change server url of swagger then please go to `.env` file and change the value of these variables:
+
+`L5_SWAGGER_CONST_HOST=http://localhost/api/`
+`L5_SWAGGER_CONST_HOST_COMMON=http://localhost:8000/api/`
+`L5_SWAGGER_CONST_HOST_COMMON_IP=http://127.0.0.1:8000/api/`
 
 ## Exception handling
 For handling any exception, I've used `Handler.php` file. There I added most common scenarios to handle exception. All the exception will return a standard json format data with error messages.
@@ -64,13 +72,17 @@ For handling any exception, I've used `Handler.php` file. There I added most com
 The application has 3 part. **Authentication, Todos and Tasks**. Authentication required for any operation of Todos and Tasks.
 
 ### Authentication
-You'll find details documentation and how to use the authentication [here](http://localhost/api/documentation#/Authentication) or YOUR_URL/api/documentation#/Authentication
+You'll find details documentation and how to use the authentication [here](http://localhost:8000/api/documentation#/Authentication) or YOUR_URL/api/documentation#/Authentication. 
+#### Default User (if you ran seeder)
+user email: salihanmridha@gmail.com
+
+password: 123456
 
 ### Todos
-You'll find details documentation and how to use the Todos [here](http://localhost/api/documentation#/Todo) or YOUR_URL/api/documentation#/Todo
+You'll find details documentation and how to use the Todos [here](http://localhost:8000/api/documentation#/Todo) or YOUR_URL/api/documentation#/Todo
 
 ### Tasks
-You'll find details documentation and how to use the Tasks [here](http://localhost/api/documentation#/Tasks) or YOUR_URL/api/documentation#/Tasks
+You'll find details documentation and how to use the Tasks [here](http://localhost:8000/api/documentation#/Tasks) or YOUR_URL/api/documentation#/Tasks
 
 ## Test cases
 I have written total 24 test cases to ensure the api functionality is working correctly. I've skipped user test cases and I assumed the main focus is on todos and tasks.
