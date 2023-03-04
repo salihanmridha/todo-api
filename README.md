@@ -56,6 +56,9 @@ Together, these two patterns provide a solid foundation for building a scalable,
 ## Swagger API documentation
 You will find swagger API documentation on YOUR_URL/api/documentation. For me it is: http://localhost/api/documentation
 
+## Exception handling
+For handling any exception, I've used `Handler.php` file. There I added most common scenarios to handle exception. All the exception will return a standard json format data with error messages.
+
 ## How to use the application
 
 The application has 3 part. **Authentication, Todos and Tasks**. Authentication required for any operation of Todos and Tasks.
