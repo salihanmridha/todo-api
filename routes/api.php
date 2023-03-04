@@ -28,6 +28,8 @@ Route::middleware('auth:sanctum')->group(function () {
     )->name('api.logout');
 
     Route::apiResource('todos', \App\Http\Controllers\API\TodoApiController::class);
-    Route::apiResource('tasks', \App\Http\Controllers\API\TaskApiController::class);
+    Route::apiResource('tasks', \App\Http\Controllers\API\TaskApiController::class)->except([
+        "index"
+    ]);
 
 });

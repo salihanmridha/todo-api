@@ -119,7 +119,7 @@ class TodoTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->post('api/todos', $attr);
         $response->assertStatus(Response::HTTP_UNPROCESSABLE_ENTITY);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_UNPROCESSABLE_ENTITY,
             "success" => false,
@@ -144,7 +144,7 @@ class TodoTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->get('api/todos');
         $response->assertStatus(Response::HTTP_OK);
-        //dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_OK,
             "success" => true,
@@ -163,7 +163,7 @@ class TodoTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->get('api/todos/1');
         $response->assertStatus(Response::HTTP_OK);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_OK,
             "success" => true,
@@ -192,7 +192,7 @@ class TodoTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->get('api/todos/' . $user2Todo->id);
         $response->assertStatus(Response::HTTP_NOT_FOUND);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_NOT_FOUND,
             "success" => false,
@@ -214,7 +214,6 @@ class TodoTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->put('api/todos/1', $attr);
         $response->assertStatus(Response::HTTP_ACCEPTED);
-//        dd($response->getContent());
 
         $response->assertJson([
             "status" => Response::HTTP_ACCEPTED,
@@ -254,7 +253,6 @@ class TodoTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->put('api/todos/' . $user2Todo->id, $attr);
         $response->assertStatus(Response::HTTP_NOT_FOUND);
-//        dd($response->getContent());
 
         $response->assertJson([
             "status" => Response::HTTP_NOT_FOUND,
@@ -279,7 +277,6 @@ class TodoTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->delete('api/todos/' . $todo->id);
         $response->assertStatus(Response::HTTP_ACCEPTED);
-//        dd($response->getContent());
 
         $response->assertJson([
             "status" => Response::HTTP_ACCEPTED,
@@ -312,7 +309,6 @@ class TodoTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->delete('api/todos/' . $user2Todo->id);
         $response->assertStatus(Response::HTTP_NOT_FOUND);
-//        dd($response->getContent());
 
         $response->assertJson([
             "status" => Response::HTTP_NOT_FOUND,

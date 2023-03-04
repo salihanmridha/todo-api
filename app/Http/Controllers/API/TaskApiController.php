@@ -18,13 +18,6 @@ class TaskApiController extends Controller
     {
         $this->taskService = $taskService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
     /**
      * @OA\Post(

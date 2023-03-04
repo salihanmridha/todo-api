@@ -81,7 +81,7 @@ class TaskTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->post('api/tasks', $attr);
         $response->assertStatus(Response::HTTP_CREATED);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_CREATED,
             "success" => true,
@@ -121,7 +121,7 @@ class TaskTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->post('api/tasks', $attr);
         $response->assertStatus(Response::HTTP_FORBIDDEN);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_FORBIDDEN,
             "success" => false,
@@ -146,7 +146,7 @@ class TaskTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->get('api/tasks/1');
         $response->assertStatus(Response::HTTP_OK);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_OK,
             "success" => true,
@@ -180,7 +180,7 @@ class TaskTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->get('api/tasks/' . $task->id);
         $response->assertStatus(Response::HTTP_FORBIDDEN);
-//        dd($response->getContent());
+
         $response->assertJson([
             "status" => Response::HTTP_FORBIDDEN,
             "success" => false,
@@ -203,7 +203,7 @@ class TaskTest extends TestCase
         ];
         $response = $this->actingAs($user, 'sanctum')->put('api/tasks/1', $attr);
         $response->assertStatus(Response::HTTP_ACCEPTED);
-//        dd($response->getContent());
+
 
         $response->assertJson([
             "status" => Response::HTTP_ACCEPTED,
@@ -232,7 +232,6 @@ class TaskTest extends TestCase
 
         $response = $this->actingAs($user, 'sanctum')->delete('api/tasks/1');
         $response->assertStatus(Response::HTTP_ACCEPTED);
-//        dd($response->getContent());
 
         $response->assertJson([
             "status" => Response::HTTP_ACCEPTED,
