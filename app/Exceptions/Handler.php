@@ -97,6 +97,14 @@ class Handler extends ExceptionHandler
                 'message' => "Sorry! We are unable to process your request at this moment. Try again later",
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
+
+        if($exception instanceof \ErrorException) {
+            return response()->json([
+                'status' => Response::HTTP_INTERNAL_SERVER_ERROR,
+                'success' => false,
+                'message' => "Sorry! We are unable to process your request at this moment. Try again later",
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
         return parent::render($request, $exception);
     }
 }
